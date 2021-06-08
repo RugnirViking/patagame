@@ -1,88 +1,99 @@
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-
-/* Space out content a bit */
-body {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-/* Custom page header */
-.header {
-  padding-bottom: 1rem;
-  border-bottom: .05rem solid #e5e5e5;
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
+.parallax {
+  perspective: 1px;
+  perspective-origin: center;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin-top: 0;
-  margin-bottom: 0;
-  line-height: 3rem;
+  height: 100vh;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 1.5rem;
-  color: #777;
-  border-top: .05rem solid #e5e5e5;
+.parallax .group {
+  position: relative;
+	height: 100vh;
+  transform-style: preserve-3d;
 }
 
-/* Customize container */
-@media (min-width: 48em) {
-  .container {
-    max-width: 46rem;
-  }
-}
-.container-narrow > hr {
-  margin: 2rem 0;
+.parallax .layer {
+  position: absolute;
+  width: 100%;
+	overflow: hidden;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: .05rem solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.5rem;
+#city1 {
+  fill: #111115;
+  transform: translateZ(.25px) scale(.755) translateY(-1vh);
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 3rem 0;
-}
-.marketing p + h4 {
-  margin-top: 1.5rem;
+#city2 {
+  fill: #12161e;
+  transform: translateZ(0px) scale(1) translateY(-1vh);
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 48em) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 2rem;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+#city3 {
+  fill: #19202f;
+  transform: translateZ(-.25px) scale(1.255) translateY(-1vh);
+}
+
+#city4 {
+  fill: #222032;
+  transform: translateZ(-.5px) scale(1.55) translateY(-1vh);
+}
+
+#city5 {
+  fill: #15172a;
+  transform: translateZ(-.75px) scale(1.755) translateY(-1vh);
+}
+
+#mountain1 {
+  fill: #202a5c;
+  transform: translateZ(-2.25px) scale(3.275) translateY(-1vh);
+}
+
+#mountain2 {
+  fill: #4a4d82;
+  transform: translateZ(-2.5px) scale(3.55) translateY(-1vh);
+}
+
+#mountain3 {
+  fill: #5f5d99;
+  transform: translateZ(-3px) scale(4.05) translateY(-10vh);
+	height: 50vh;
+}
+
+#mountain4 {
+  fill: #8a7d9e;
+  transform: translateZ(-3.5px) scale(4.55) translateY(-20vh);
+	height: 30vh;
+}
+
+#sun {
+  fill: #ff7e00;
+  transform: translateZ(-6px) scale(7) translateY(-25vh);
+	height: 25vh;
+}
+
+.city2-front {
+  background: #12161e;
+  width: 100vw;
+  height: 30vh;
+  position: relative;
+  margin-top: -5px;
+}
+
+.city-front {
+  position: relative;
+  margin-top: -5px;
+  background-color: #111115;
+  width: 100vw;
+  height: 185vh;
+}
+
+.site_name {
+	color: #FFF;
+	display: inline-block;
+	margin: 0 0 0 20px;
+}
+
+body {
+  background-color: #99a1cc;
 }
