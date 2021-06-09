@@ -98,5 +98,56 @@ body {
   background-color: #99a1cc;
 }
 .content {
-  padding:16px;
+  padding:64px;
+  color:#4a4d82;
+}
+.prompt {
+  margin-top: 25px;
+  font-size: 21px;
+  text-align: center;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+  left: 0;
+  top: 0;
+  z-index: -1;
+  position: absolute;
+  width: 100%;font-family: 'Staatliches', cursive;
+  opacity:0.7;
+}
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:0.7;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:0.7;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:0.7;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 0.7;
+  }
+}
+.space{
+  width: 50%;
 }
