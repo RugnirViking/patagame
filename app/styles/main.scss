@@ -116,38 +116,15 @@ body {
   width: 100%;font-family: 'Staatliches', cursive;
   opacity:0.7;
 }
-@keyframes fadein {
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:0.7;
-  }
-}
-@-moz-keyframes fadein { /* Firefox */
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:0.7;
-  }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:0.7;
-  }
-}
-@-o-keyframes fadein { /* Opera */
-  from {
-      opacity:0;
-  }
-  to {
-      opacity: 0.7;
-  }
-}
 .space{
   width: 50%;
+}
+
+.prompt {
+  opacity: 0.7;
+  transition: opacity 1s; 
+}
+
+.prompt .fade {
+  opacity: 0;
 }

@@ -10,19 +10,25 @@ console.log('\'Allo \'Allo!');
 /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
 
 var prevScrollpos = window.pageYOffset;
+var s = window.pageYOffset;
 window.onload = function()
 {
-   document.body.onscroll =  Test.callFn;
+    document.getElementById('parallax').onscroll =  Test.callFn;
 }
 
 var Test = new function()
 {
    this.callFn = function()
    {
-      console.log('Calling this function');
+      var y3 = document.getElementById('parallax').scrollTop;
+      var scrollPrompt = document.getElementById('scrollprompt');
+      if (y3===0 && scrollPrompt.classList.contains('fade')){
+        document.getElementById('scrollprompt').classList.remove('fade');
+      } else if (!scrollPrompt.classList.contains('fade')){
+        document.getElementById('scrollprompt').classList.add('fade');
+      }
    }
 }
-console.log('EGGGGGGGGSSSS');
 function randomColor(){
     var r = getRandomInt(0,255);
     var g = getRandomInt(0,255);
