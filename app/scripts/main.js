@@ -23,6 +23,28 @@ var Test = new function()
    }
 }
 console.log('EGGGGGGGGSSSS');
+function randomColor(){
+    var r = getRandomInt(0,255);
+    var g = getRandomInt(0,255);
+    var b = getRandomInt(0,255);
+    document.getElementById('rInput').value = r;
+    document.getElementById('gInput').value = g;
+    document.getElementById('bInput').value = b;
+    document.getElementById('hexInput').value = rgbToHex(r,g,b);
+    fadeColor();
+}
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+ function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function fadeColor(){
     var a = document.getElementById('hexInput').value;
     var col;
@@ -37,7 +59,7 @@ function fadeColor(){
         var b = document.getElementById('bInput').value;
         
         document.getElementById('hexInput').value = rgbToHex(r,g,b);
-        col=[r,g,b]
+        col=[parseInt(r),parseInt(g),parseInt(b)]
     }
 
     // now we have color, we need to determine its category
@@ -47,27 +69,29 @@ function fadeColor(){
     // need 10 colors total
 
     var colArray = [];
-    if (lightness<100){
+    if (lightness<40){
         // dark
         for (var i = 0; i < 9; i++) {
-            colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],i*20)))
+            var lc = LightenDarkenColor(col[0],col[1],col[2],i*20);
+            var nc = parseColor(lc);
+            colArray.push(nc);
         }
-        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],10*20)))
-        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],12*20)))
+        colArray.push(parseColor(LightenDarkenColor(col[1],col[0],col[2],10*20)));
+        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],12*20)));
     } else if (lightness<200){
         // mid
         for (var i = -5; i < 4; i++) {
-            colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],i*20)))
+            colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],i*20)));
         }
-        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],6*20)))
-        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],8*20)))
+        colArray.push(parseColor(LightenDarkenColor(col[1],col[0],col[2],6*20)));
+        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],8*20)));
     } else {
         // light
         for (var i = -10; i < -1; i++) {
-            colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],i*20)))
+            colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],i*20)));
         }
-        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],2*20)))
-        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],5*20)))
+        colArray.push(parseColor(LightenDarkenColor(col[1],col[0],col[2],2*20)));
+        colArray.push(parseColor(LightenDarkenColor(col[0],col[1],col[2],5*20)));
     }
 
     // colours are defined now, we just have to apply them in order (with fade)
@@ -84,7 +108,6 @@ function fadeColor(){
     document.getElementById('mountain4').style.fill = colToHex(colArray[8]);
     document.getElementById('sun').style.fill = colToHex(colArray[9]);
     document.body.style.backgroundColor = colToHex(colArray[10]);
-    debugger;
 }
 function LightenDarkenColor(ra,ga,ba, amt) {
     var col = rgbToHex(ra,ga,ba);
@@ -112,11 +135,16 @@ function LightenDarkenColor(ra,ga,ba, amt) {
     if (g > 255) g = 255;
     else if (g < 0) g = 0;
  
-    return (usePound?'#':'') + (g | (b << 8) | (r << 16)).toString(16);
+    var c = (g | (b << 8) | (r << 16)).toString(16);
+
+    while (c.length<6){
+        c='0'+c;
+    }
+    return (usePound?'#':'') + c;
   
 }
 function componentToHex(c) {
-    var hex = c.toString(16);
+    var hex = parseInt(c).toString(16);
     return hex.length == 1 ? '0' + hex : hex;
   }
   
