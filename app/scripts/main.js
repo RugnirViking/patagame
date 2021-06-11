@@ -113,7 +113,16 @@ function fadeColor(){
     document.getElementById('mountain3').style.fill = colToHex(colArray[7]);
     document.getElementById('mountain4').style.fill = colToHex(colArray[8]);
     document.getElementById('sun').style.fill = colToHex(colArray[9]);
+
+    var list = document.getElementsByClassName('btn-primary');
+    for (var i = 0; i < list.length; i++) {
+        // list[i] is a node with the desired class name
+        list[i].style.backgroundColor = colToHex([colArray[4][1],colArray[4][0],colArray[4][2]]);
+        list[i].style.borderColor = colToHex([colArray[2][1],colArray[2][0],colArray[2][2]]);
+    }
     document.body.style.backgroundColor = colToHex(colArray[10]);
+    document.body.style.color = colToHex(colArray[3]);
+    document.getElementById('contentDiv').style.color = colToHex(colArray[10]);
 }
 function LightenDarkenColor(ra,ga,ba, amt) {
     var col = rgbToHex(ra,ga,ba);
