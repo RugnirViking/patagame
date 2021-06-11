@@ -46,7 +46,7 @@
 
 #mountain1 {
   fill: #202a5c;
-  transform: translateZ(-2.25px) scale(3.275) translateY(-1vh);
+  transform: translateZ(-2.25px) scale(3.275) translateY(7vh);
 }
 
 #mountain2 {
@@ -68,7 +68,7 @@
 
 #sun {
   fill: #ff7e00;
-  transform: translateZ(-6px) scale(7) translateY(-25vh);
+  transform: translateZ(-6px) scale(7) translateY(-25vh) translateX(5vh);
 	height: 25vh;
 }
 
@@ -116,6 +116,7 @@ body {
   width: 100%;font-family: 'Staatliches', cursive;
   opacity:0.7;
 }
+
 .space{
   width: 50%;
 }
